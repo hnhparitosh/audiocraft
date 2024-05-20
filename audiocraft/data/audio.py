@@ -201,7 +201,7 @@ def audio_write(stem_name: tp.Union[str, Path, BytesIO],
     kwargs: dict = {}
     if format == 'mp3':
         suffix = '.mp3'
-        kwargs.update({"compression": mp3_rate})
+        # kwargs.update({"compression": mp3_rate})
     elif format == 'wav':
         wav = i16_pcm(wav)
         suffix = '.wav'
@@ -219,7 +219,7 @@ def audio_write(stem_name: tp.Union[str, Path, BytesIO],
     
     try:
         ta.save(
-            filepath=audio,
+            uri=audio,
             src=wav,
             sample_rate=sample_rate, 
             format=format,
